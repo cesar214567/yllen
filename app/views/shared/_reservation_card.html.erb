@@ -1,0 +1,32 @@
+
+<div class="general-card mb-3">
+  <div class="general-image">
+    <%= cl_image_tag elem.item.images.first.key, width: 300, height: 200, crop: :fit, :class => ""%>
+  </div>
+  <div class="general-info">
+    <div class="row">
+      <div class="col">
+        <h1> <%= elem.item.name %></h1>
+        <p><strong>Usuario:</strong><%= elem.user.full_name %></p>
+        <p><strong>Cantidad:</strong><%= elem.quantity %></p>
+        <%= link_to "ir al objeto", item_path(elem.item),:class => "btn btn-primary my-2"%>
+      </div>
+      <div class="col pt-5">
+        <p><strong>telefono:</strong><%= elem.user.phone_number %></p>
+        <p><strong>correo:</strong><%= elem.user.email %></p>
+        <%= simple_form_for elem do |f| %>
+          <div class="form-inline">
+            <div class="inline-item">
+              <%= f.input :enabled, :class => "my-0" %>
+              <%= f.input :answered, :class => "my-0"%>
+            </div>
+          </div>
+          <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+    </div>
+
+
+  </div>
+</div>

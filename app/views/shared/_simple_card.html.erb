@@ -1,0 +1,34 @@
+<%= link_to item_path(item) do  %>
+  <div class="small-catch-card">
+
+    <div class="card-side front">
+
+      <div class="upper-container d-flex justify-content-center align-items-center">
+        <h2 ><%= item.name %></h2>
+      </div>
+      <div class="catch-pic d-flex align-items-center justify-content-center">
+        <%= cl_image_tag item.images.first.key %>
+
+      </div>
+
+    </div>
+
+    <div class="card-side back ">
+      <div class="head d-flex flex-column">
+        <h2 class="align-self-center">Detalles</h2>
+      </div>
+      <ul class="vertical-scroll">
+        <li><strong>precio: </strong><%= item.price %></li>
+        <li><strong>stock: </strong><%= item.quantity %></li>
+        <li><strong>tipo: </strong><%= item.subtype.type.name %></li>
+        <li><strong>subtipo: </strong><%= item.subtype.name %></li>
+      </ul>
+      <hr>
+      <div class="content vertical-scroll">
+        <h5><strong> Description</strong></h5>
+        <p><%= item.description %></p>
+      </div>
+    </div>
+
+  </div>
+<% end %>

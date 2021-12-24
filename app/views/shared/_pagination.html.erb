@@ -1,0 +1,20 @@
+<div class="container ">
+  <div class="vertical-scroll vh-80">
+    <div class=<%= instance == Item ? "grid-container" : ""%>>
+      <% array.each do |elem| %>
+        <% if instance == Item %>
+          <%= render "shared/simple_card", item: elem %>
+        <% elsif instance == Type %>
+          <%= render "shared/general_card", elem: elem, instance: instance, elem_path: type_path(elem) %>
+        <% elsif instance == Subtype %>
+          <%= render "shared/general_card", elem: elem, instance: instance, elem_path: subtype_path(elem) %>
+        <% elsif instance == Reservation %>
+          <%= render "shared/reservation_card", elem: elem, instance: instance, elem_path: reservation_path(elem) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="container d-flex justify-content-center my-4">
+    <%= paginate array%>
+  </div>
+</div>
