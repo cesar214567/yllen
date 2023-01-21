@@ -85,5 +85,4 @@ test:
 production:
   <<: *default
   database: yllen_production
-  username: yllen
-  password: <%= ENV['YLLEN_DATABASE_PASSWORD'] %>
+  
