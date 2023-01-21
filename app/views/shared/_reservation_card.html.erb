@@ -17,8 +17,8 @@
         <%= simple_form_for elem do |f| %>
           <div class="form-inline">
             <div class="inline-item">
-              <%= f.input :enabled, :class => "my-0" %>
-              <%= f.input :answered, :class => "my-0"%>
+              <%= f.input :enabled,:label =>"Visible", :class => "my-0" %>
+              <%= f.input :answered,:label =>"Contestado", :class => "my-0"%>
             </div>
           </div>
           <%= f.submit "Submit", class: "btn btn-primary" %>

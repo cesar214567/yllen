@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   resources :items do
     resources :reservations, only: [:create]
   end
-  resources :reservations, except: [:create]
+  resources :reservations
 end

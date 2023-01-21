@@ -17,6 +17,7 @@ class ReservationsController < ApplicationController
     @reservation.item = Item.find(params[:item_id])
     @reservation.enabled = true
     @reservation.answered = false
+    @reservation.save!
     redirect_to item_path(@reservation.item)
 
   end
