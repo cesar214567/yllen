@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/faker-ruby/faker.git
-  revision: 982f825115a19829a4b8f2d3b3b0a7cbdb57910c
+  revision: 1245daa8674fb19807dac375a368a5dce625a124
   branch: main
   specs:
     faker (3.3.1)
@@ -309,7 +309,7 @@ GEM
       version_gem (~> 1.1, >= 1.1.1)
     sort_alphabetical (1.1.0)
       unicode_utils (>= 1.2.2)
-    spring (4.2.0)
+    spring (4.2.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
