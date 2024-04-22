@@ -39,11 +39,10 @@ gem "i18n"
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'nokogiri'
 gem 'open-uri'
 gem 'csv'
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 gem 'kaminari'
 gem 'unsplash'
 
