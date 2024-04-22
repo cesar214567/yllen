@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '3.3.0'
 
 
 gem 'pg_search', '~> 2.3.0'
@@ -39,11 +39,10 @@ gem "i18n"
 gem 'autoprefixer-rails', '10.2.5'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'nokogiri'
 gem 'open-uri'
 gem 'csv'
 gem 'dotenv-rails', groups: [:development, :test]
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'main'
 gem 'kaminari'
 gem 'unsplash'
 
