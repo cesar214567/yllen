@@ -2,14 +2,14 @@
 // Specific CSS for your home-page
  .subtitle-homepage2 {
 
-  margin-top: 100px;
+  margin-top: 50px;
   font-weight: 700;
   font-family: 'Raleway', sans-serif;
 
 }
 
 .subtitle-homepage{
-  margin-top: 100px;
+  margin-top: 50px;
   padding: 15px;
 }
 
@@ -186,4 +186,10 @@ hr{
   margin-bottom: 0.25rem!important;
   margin-top: 0.25rem!important;
   border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+.fixed { 
+  height: 100%;
+}
+.contain { 
+  object-fit: contain;
 }
