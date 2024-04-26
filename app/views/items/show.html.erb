@@ -46,11 +46,7 @@
             <div>
               <h3 style="margin-top: 20px; ">Cantidad:</h3>
               <hr>
-              <% if current_user.admin?  %>
-                <%= f.input :quantity,:label =>false, :class => "my-0" %>
-              <% else %>
-                <%= @item.quantity%>
-              <% end %>
+              <%= @item.quantity%>
             </div>
           </div>
           <div id ="type">
