@@ -3,15 +3,15 @@
     <%= text_field_tag :query,
     params[:query],
     class: "form-control",
-    placeholder: "Search by name or fish"
+    placeholder: "Busca por tipo, subtipo o item"
     %>
   </div>
   <div class="col-1">
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Buscar", class: "btn btn-primary" %>
   </div>
   <% if current_user.admin? %>
     <div class="col-3 ">
-    <div class="filtro " ><h6><%=link_to "create new #{path[1..-2]}", "#{path}/new",class:"btn btn-primary" %></h6></div>
+    <div class="filtro " ><h6><%=link_to "crear nuevo #{path[1..-2]}", "#{path}/new",class:"btn btn-primary" %></h6></div>
   </div>
   <% end %>
 <% end %>

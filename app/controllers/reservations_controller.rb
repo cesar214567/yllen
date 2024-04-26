@@ -14,12 +14,13 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(reservations_params)
     @reservation.user = current_user
-    @reservation.item = Item.find(params[:item_id])
+    #@reservation.item = Item.find(params[:item_id].to_i)
     @reservation.enabled = true
     @reservation.answered = false
     @reservation.save!
-    redirect_to item_path(@reservation.item)
-
+    redirect_to item_path(@reservation.item),notice:"la reserva fue creada, 
+    le estaremos llamando dentro de poco"
+    
   end
 
   def update
@@ -34,7 +35,7 @@ class ReservationsController < ApplicationController
   end
 
   def reservations_params
-    params.require(:reservation).permit(:quantity)
+    params.require(:reservation).permit(:quantity,:item_id)
   end
 
 end

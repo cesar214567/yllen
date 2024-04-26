@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-center pt-3" >
+  <div class="col-6">
+    <%= simple_form_for @inventory, :class => "form-group" do |f| %>
+      <%= f.input :inventory_type, as: :select, :collection => %w[ingreso salida equivocacion], :class => "form-control"%>
+      <%= f.input :quantity, :class => "form-control"%>
+      <%= f.association :item, include_blank: false, label_method: lambda { |item| "#{item.id} | #{item.name}" } %>
+      <%= f.submit "Submit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

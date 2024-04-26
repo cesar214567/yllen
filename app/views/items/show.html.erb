@@ -86,14 +86,17 @@
               <%= f.submit "editar datos", class: "btn btn-primary" %>
 
             </div>
-          <% else %>
+          <% end %>
+    <% end %>  
+          <% unless current_user.admin? %>
             <div>
               <h3 style="margin-top: 20px; ">Reservar:</h3>
               <hr>
             </div>
-            <%= simple_form_for [@item,@reservation], :html => {:class => "form-group row"} do |f| %>
+            <%= simple_form_for [@reservation], :html => {:class => "form-group row"} do |f| %>
               <div class="col">
                 <%= f.input :quantity, :class => "form-control"%>
+                <%= f.input :item_id, :as => :hidden %>
               </div>
               <div class="col pt-1">
                 <%= f.submit "Submit", class: "btn btn-primary mt-4" %>
@@ -101,6 +104,5 @@
             <% end %>
           <% end  %>
       </div>
-    <% end %>
   </div>
 </div>

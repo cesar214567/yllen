@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_03_184028) do
+ActiveRecord::Schema.define(version: 2024_04_25_221727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2021_12_03_184028) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "inventories", force: :cascade do |t|
+    t.bigint "item_id", null: false
+    t.string "inventory_type", limit: 40, null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["item_id"], name: "index_inventories_on_item_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -101,6 +110,7 @@ ActiveRecord::Schema.define(version: 2021_12_03_184028) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "inventories", "items"
   add_foreign_key "items", "subtypes"
   add_foreign_key "reservations", "items"
   add_foreign_key "reservations", "users"
