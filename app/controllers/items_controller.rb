@@ -20,6 +20,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
+    @item.quantity = 0 
     authorize @item
     if @item.save
       redirect_to item_path(@item)
