@@ -12,4 +12,8 @@ class ItemPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def new?
+    user.admin?
+  end
 end

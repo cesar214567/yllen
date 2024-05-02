@@ -10,6 +10,7 @@ class TypePolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user.admin?
   end
+
 end

@@ -10,21 +10,20 @@
 <% if user_signed_in? %>
   <div class="navbar-medium">
 
-    <% if current_user.admin? %>
-      <span><%= link_to "Tipos", types_path %></span>
+    
+    <span><%= link_to "Tipos", types_path %></span>
     <h4>|</h4>
     <span><%= link_to "Subtipos",subtypes_path %></span>
     <h4>|</h4>
-    <span><%= link_to "Pedidos",reservations_path  %></span>
-    <h4>|</h4>
-    <span><%= link_to "Inventario",new_inventory_path  %></span>
-    <h4>|</h4>
-    <% end %>
-
     <span><%= link_to "Items",items_path  %></span>
     <h4>|</h4>
     <span><%= link_to "home","/"  %></span>
-
+    <% if current_user.admin? %>
+      <h4>|</h4>
+      <span><%= link_to "Pedidos",reservations_path  %></span>
+      <h4>|</h4>
+      <span><%= link_to "Inventario",new_inventory_path  %></span>
+    <% end %>
 
   </div>
 <% end %>

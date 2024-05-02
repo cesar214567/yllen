@@ -5,20 +5,22 @@ class ItemsController < ApplicationController
     else
       @items = policy_scope(Item).page params[:page]
     end
+    authorize @items
   end
 
   def new
     @item = Item.new
+    authorize @item
   end
 
   def show
     @item = Item.find(params[:id])
     @reservation = Reservation.new(item:@item)
-
   end
 
   def create
     @item = Item.new(items_params)
+    authorize @item
     if @item.save
       redirect_to item_path(@item)
     else

@@ -11,6 +11,7 @@ class TypesController < ApplicationController
 
   def new
     @type = Type.new
+    authorize @type
   end
 
   def show
@@ -18,8 +19,9 @@ class TypesController < ApplicationController
 
   def create
     @type = Type.new(types_params)
+    authorize @type
     if @type.save
-      redirect_to type_path(@type)
+      redirect_to types_path
     else
       render :new
     end

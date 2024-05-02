@@ -10,6 +10,6 @@ class SubtypePolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user.admin?
   end
 end

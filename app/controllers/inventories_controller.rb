@@ -12,7 +12,7 @@ class InventoriesController < ApplicationController
             else
                 @item.update(quantity: @item.quantity - @inventory.quantity)
             end
-            redirect_to new_inventory_path(@inventory),notice: "se agrego el inventario"
+            redirect_to new_inventory_path, notice: "se agrego el inventario"
         else
             render :new, alert: @invetory.errors.first
         end

@@ -10,12 +10,14 @@ class SubtypesController < ApplicationController
 
   def new
     @subtype = Subtype.new
+    authorize @subtype
   end
 
   def create
     @subtype = Subtype.new(subtypes_params)
+    authorize @subtype
     if @subtype.save
-      redirect_to subtype_path(@subtype)
+      redirect_to subtypes_path
     else
       render :new
     end

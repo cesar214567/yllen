@@ -1,5 +1,5 @@
 
-<%= link_to elem_path do %>
+<%= link_to elem_path, {query: elem.name} do %>
   <div class="general-card mb-3">
     <div class="general-image">
       <%= cl_image_tag elem.image.key, width: 300, height: 200, crop: :fit, :class => ""%>
