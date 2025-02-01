@@ -1,12 +1,19 @@
 <div class="d-flex justify-content-center pt-3" >
   <div class="col-6">
     <%= simple_form_for @item, :class => "form-group" do |f| %>
-      <%= f.input :name, :class => "form-control"%>
-      <%= f.input :description, :class => "form-control"%>
-      <%= f.input :price, :class => "form-control"%>
-      <%= f.input :enabled, :class => "form-control"%>
-      <%= f.input :images, :input_html => { :multiple => true } %>
-      <%= f.association :subtype, :class => "form-control"%>
+      <%= f.input :name,label:"Titulo", :class => "form-control"%>
+      <%= f.input :description,label:"Descripcion", :class => "form-control"%>
+      <%= f.input :price, label:"Precio", :class => "form-control"%>
+      <%= f.input :enabled,label: "Debe mostrarse?", :class => "form-control"%>
+      <%= f.input :images,label:"Fotos (puedes seleccionar varias)", :input_html => { :multiple => true } %>
+      <%= f.input :subtype_id,
+        label: "Subtipo",
+        as: :select,
+        input_html: { 
+          class: "select2 select2-items",
+          data: { url: search_subtypes_path }
+        } 
+      %>
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>

@@ -25,6 +25,13 @@ class SubtypesController < ApplicationController
 
   def show
   end
+
+  def search
+    request.format = :json
+    subtypes = Subtype.where("name ILIKE ?", "%#{params[:query]}%").limit(5)
+    render json: subtypes.map { |subtype| { id: subtype.id, text: subtype.name } }
+  end
+
   private
 
   def set_subtype

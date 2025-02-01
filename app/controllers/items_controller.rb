@@ -1,10 +1,13 @@
 class ItemsController < ApplicationController
   def index
+    @items = policy_scope(Item)
     if params[:query].present?
-      @items = policy_scope(Item).general_search(params[:query]).page params[:page]
-    else
-      @items = policy_scope(Item).page params[:page]
+      @items = @items.general_search(params[:query])
     end
+    unless current_user.admin?
+      @items = @items.where(enabled: true)
+    end
+    @items = @items.page(params[:page])
     authorize @items
   end
 
@@ -19,7 +22,9 @@ class ItemsController < ApplicationController
   end
 
   def create
+    puts "asdasdasdassdasd"
     @item = Item.new(items_params)
+    @item.subtype = Subtype.find(@item.subtype_id)
     @item.quantity = 0 
     authorize @item
     if @item.save

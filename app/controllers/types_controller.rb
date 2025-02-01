@@ -27,6 +27,12 @@ class TypesController < ApplicationController
     end
   end
 
+  def search
+    request.format = :json
+    types = Type.where("name ILIKE ?", "%#{params[:query]}%").limit(5)
+    render json: types.map { |type| { id: type.id, text: type.name } }
+  end
+
   private
 
   def set_type

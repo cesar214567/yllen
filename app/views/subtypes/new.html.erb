@@ -1,11 +1,18 @@
 <div class="d-flex justify-content-center">
   <div class="col-6">
     <%= simple_form_for @subtype, :class => "form-group" do |f| %>
-      <%= f.input :name, :class => "form-control"%>
-      <%= f.input :description, :class => "form-control"%>
-      <%= f.input :image%>
-      <%= f.association :type, :class => "form-control"%>
+      <%= f.input :name, label: "titulo", :class => "form-control"%>
+      <%= f.input :description, label: "descripcion", :class => "form-control"%>
+      <%= f.input :image, label: "Foto" %>
+      <%= f.input :type_id,
+            label: "Tipo",
+            as: :select,
+            input_html: { 
+              class: "select2 select2-subtypes",
+              data: { url: search_types_path } # URL for AJAX search
+            } %>  
       <%= f.submit "Submit", class: "btn btn-primary" %>
     <% end %>
   </div>
+  
 </div>

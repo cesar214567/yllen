@@ -8,44 +8,49 @@
       <div class="row">
         <div class="col">
           <%= f.input :email,
-                    required: true,
-                    autofocus: true, class: "form-control",
-                    input_html: { autocomplete: "email" }%>
+            required: true,
+            autofocus: true, class: "form-control",
+            input_html: { autocomplete: "email" }%>
         </div>
         <div class="col">
           <%= f.input :password,
+                    label: "contraseña",
                     required: true, class: "form-control",
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    hint: ("#{@minimum_password_length} caracteres minimo" if @minimum_password_length),
                     input_html: { autocomplete: "new-password" } %>
         </div>
       </div>
       <div class="row">
-      ` <div class="col">
+        <div class="col">
             <%= f.input :name,
-                      required: true %>
+              label: "nombre",
+              required: true %>
         </div>
         <div class="col">
           <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "new-password" } %>
+            label: "confirmar contraseña",
+            required: true,
+            input_html: { autocomplete: "new-password" } %>
         </div>
       </div>
       <div class="row">
 
         <div class="col">
           <%= f.input :last_name,
-                    required: true %>
+            label: "apellidos",
+            required: true %>
         </div>
         <div class="col">
           <%= f.input :phone_number,
-                    required: true %>
+            label: "telefono",
+            required: true %>
         </div>
       </div>
       <div class="form-actions">
-        <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
+        <%= f.button :submit, "Crear cuenta", class: "btn btn-primary" %>
+        <%= render "devise/shared/links" %>
       </div>
     <% end %>
 
-    <%= render "devise/shared/links" %>
   </div>
 </div>

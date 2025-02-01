@@ -9,7 +9,7 @@
   <div class="col-1">
     <%= submit_tag "Buscar", class: "btn btn-primary" %>
   </div>
-  <% if current_user.admin? %>
+  <% if current_user.admin? && path[1..-1] != "reservations"%>
     <div class="col-3 ">
     <div class="filtro " ><h6><%=link_to "crear nuevo #{path[1..-2]}", "#{path}/new",class:"btn btn-primary" %></h6></div>
   </div>

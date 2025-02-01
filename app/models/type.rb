@@ -4,9 +4,9 @@ class Type < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :general_search,
-    against: [:name, :description,:type],
+    against: [:name, :description],
     associated_against: {
-      type:[:name]
+      subtypes:[:name]
     }, using: {
       tsearch: {prefix: true}
     }

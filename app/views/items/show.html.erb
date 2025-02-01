@@ -79,8 +79,9 @@
             <div>
               <h3 style="margin-top: 20px; ">Actualizar:</h3>
               <hr>
-              <%= f.submit "editar datos", class: "btn btn-primary" %>
+              <%= f.input :enabled,label: "habilitado para mostrar?", :class => "my-0" %>
 
+              <%= f.submit "editar datos", class: "btn btn-primary" %>
             </div>
           <% end %>
     <% end %>  
