@@ -66,4 +66,5 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   startSelect2(".select2-subtypes");
   startSelect2(".select2-items");
+  startSelect2(".select2-inventories");
 });

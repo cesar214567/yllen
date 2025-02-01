@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :types
   get 'subtypes/search', to: 'subtypes#search', as: :search_subtypes
   resources :subtypes
+  get 'items/search', to: 'items#search', as: :search_items
   resources :items do
     resources :reservations, only: [:create]
   end

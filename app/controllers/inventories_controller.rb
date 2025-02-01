@@ -18,6 +18,7 @@ class InventoriesController < ApplicationController
         end
     end
 
+    
     def inventory_params
         params.require(:inventory).permit(:item_id, :inventory_type, :quantity)
     end

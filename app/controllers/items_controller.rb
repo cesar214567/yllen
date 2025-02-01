@@ -40,6 +40,13 @@ class ItemsController < ApplicationController
     @item.update(items_params)
     redirect_to items_path
   end
+  
+  def search
+    request.format = :json
+    items = Item.where("name ILIKE ?", "%#{params[:query]}%").limit(5)
+    render json: items.map { |item| { id: item.id, text: item.name } }
+  end
+
   private
 
   def set_item

@@ -3,7 +3,13 @@
     <%= simple_form_for @inventory, :class => "form-group" do |f| %>
       <%= f.input :inventory_type, :label => "Tipo de inventariado", as: :select, :collection => %w[ingreso salida equivocacion], :class => "form-control"%>
       <%= f.input :quantity, :label => "Cantidad", :class => "form-control"%>
-      <%= f.association :item, include_blank: false, label_method: lambda { |item| "#{item.id} | #{item.name}" } %>
+      <%= f.input :item_id,
+            label: "Item",
+            as: :select,
+            input_html: { 
+              class: "select2 select2-inventories",
+              data: { url: search_items_path } # URL for AJAX search
+            } %>  
       <%= f.submit "Crear Inventario", class: "btn btn-primary" %>
     <% end %>
   </div>
