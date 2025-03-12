@@ -2,7 +2,7 @@ class Subtype < ApplicationRecord
   belongs_to :type
   has_one_attached :image
 
-  has_many :items
+  has_many :items, dependent: :destroy
   has_many :reservations, through: :items
   include PgSearch::Model
   pg_search_scope :general_search,

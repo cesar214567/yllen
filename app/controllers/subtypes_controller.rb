@@ -1,5 +1,6 @@
 class SubtypesController < ApplicationController
-  before_action :set_subtype, only: [:show]
+  before_action :authenticate_admin!, only: [:destroy] # Ensure user is an admin before deleting
+  before_action :set_type, only: [:show, :destroy]
   def index
     if params[:query].present?
       @subtypes = policy_scope(Subtype).general_search(params[:query]).page params[:page]
@@ -32,12 +33,28 @@ class SubtypesController < ApplicationController
     render json: subtypes.map { |subtype| { id: subtype.id, text: subtype.name } }
   end
 
-  private
-
-  def set_subtype
-    @subtype = Subtype.find(params[:id])
+  def destroy
+    if @subtype.destroy
+      redirect_to subtypes_path
+    else
+      render json: { error: "Failed to delete Type" }, status: :unprocessable_entity
+    end
   end
 
+  private
+
+  
+  def set_type
+    @subtype = Subtype.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    render json: { error: "Subtipo no encontrado" }, status: :not_found
+  end
+  
+  def authenticate_admin!
+    unless current_user&.admin?
+      render json: { error: "Unauthorized: Admin access required" }, status: :forbidden
+    end
+  end
   def subtypes_params
     params.require(:subtype).permit(:name, :description, :image, :type_id)
   end

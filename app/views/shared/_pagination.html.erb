@@ -5,9 +5,9 @@
         <% if instance == Item %>
           <%= render "shared/simple_card", item: elem %>
         <% elsif instance == Type %>
-          <%= render "shared/general_card", elem: elem, elem_path: subtypes_path({query:elem.name}) %>
+          <%= render "shared/general_card", elem: elem, child_path: subtypes_path({query:elem.name}), elem_path: type_path(elem) %>
         <% elsif instance == Subtype %>
-          <%= render "shared/general_card", elem: elem, elem_path: items_path({query:elem.name}) %>
+          <%= render "shared/general_card", elem: elem, child_path: items_path({query:elem.name}), elem_path: subtype_path(elem) %>
         <% elsif instance == Reservation %>
           <%= render "shared/reservation_card", elem: elem, instance: instance, elem_path: reservation_path(elem) %>
         <% end %>

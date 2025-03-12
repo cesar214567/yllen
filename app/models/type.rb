@@ -1,5 +1,5 @@
 class Type < ApplicationRecord
-  has_many :subtypes
+  has_many :subtypes, dependent: :destroy
   has_one_attached :image
 
   include PgSearch::Model

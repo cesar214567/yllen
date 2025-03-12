@@ -2,7 +2,8 @@ class Item < ApplicationRecord
   belongs_to :subtype
   has_many_attached :images
   has_one :type, :through => :subtype
-  has_many :reservations
+  has_many :reservations, dependent: :destroy
+  has_many :inventories, dependent: :destroy
   include PgSearch::Model
   pg_search_scope :general_search,
     against: [:name, :description],
